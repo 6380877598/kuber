@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build the Docker image') {
             steps {
-                sh 'docker build -t newimage /var/lib/jenkins/workspace/kuber'
+                sh 'docker build -t newimage /var/lib/jenkins/workspace/kubernetes'
                 sh 'docker tag newimage iammithran/newimage:latest'
                 sh 'docker tag newimage iammithran/newimage:${BUILD_NUMBER}'
             }
