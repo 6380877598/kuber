@@ -3,20 +3,20 @@ pipeline {
     stages {
         stage('Pull Code From GitHub') {
             steps {
-                git 'https://github.com/Iam-mithran/kuber.git'
+                git 'https://github.com/6380877598/kuber.git'
             }
         }
         stage('Build the Docker image') {
             steps {
-                sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/kuber'
-                sh 'sudo docker tag newimage iammithran/newimage:latest'
-                sh 'sudo docker tag newimage iammithran/newimage:${BUILD_NUMBER}'
+                sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/kubernetes'
+                sh 'sudo docker tag newimage sridhar1831999/newimage:latest'
+                sh 'sudo docker tag newimage sridhar1831999/newimage:${BUILD_NUMBER}'
             }
         }
         stage('Push the Docker image') {
             steps {
-                sh 'sudo docker image push iammithran/newimage:latest'
-                sh 'sudo docker image push iammithran/newimage:${BUILD_NUMBER}'
+                sh 'sudo docker image push sridhar1831999/newimage:latest'
+                sh 'sudo docker image push sridhar1831999/newimage:${BUILD_NUMBER}'
             }
         }
         stage('Deploy on Kubernetes') {
