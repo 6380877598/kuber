@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Build the Docker image') {
             steps {
-                sh 'sudo docker build -t newimage /var/lib/jenkins/workspace/kuber'
-                sh 'sudo docker tag newimage iammithran/newimage:latest'
-                sh 'sudo docker tag newimage iammithran/newimage:${BUILD_NUMBER}'
+                sh 'docker build -t newimage /var/lib/jenkins/workspace/kuber'
+                sh 'docker tag newimage iammithran/newimage:latest'
+                sh 'docker tag newimage iammithran/newimage:${BUILD_NUMBER}'
             }
         }
         stage('Push the Docker image') {
